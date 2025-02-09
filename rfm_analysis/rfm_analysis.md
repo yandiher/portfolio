@@ -401,8 +401,3 @@ Categories:
 - Do survival analysis to understand customer lifetime value, predicting how often customers purchase.
 - Do cohort analysis to understand retention rate, observing customer behaviour based on their first purchase.
 - Do churn analysis to understand churn rate, identifying what factors make customers stop purchasing or using our products.
-
-
-```python
-
-```

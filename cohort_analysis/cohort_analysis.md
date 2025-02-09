@@ -377,8 +377,3 @@ We know that it's a good job to reach 50% retention rate. But, there are still s
 - do churn analysis to understand churn rate, identifying what factors make customers stop purchasing or using our products.
 - do survival analysis to understand customer lifetime value, predicting how often customers will purchase.
 - do comparative analysis like t-test to understand whether the customers with membership do more purchase rather than casual customers.
-
-
-```python
-
-```
