@@ -388,7 +388,7 @@ For R2-R1F2M2 categories, better do limited time offer so the customers instantl
 For R1F1M1 category, they are past customers, rarely purchased, and spent small amount of money. Try giving broader promo that can apply for finding new customers and winning pas customers. Also make personalized promo to show them that we know them.
 
 Categories:
-- R2F3M3 (68 customers) focuses on limited time offer.
+- R2F3M3 (64 customers) focuses on limited time offer.
 - R1F3M3 (43 customers) focuses on limited time offer.
 - R3F2M2 (52 customers) focuses on loyalty program.
 - R2F2M2 (55 customers) focuses on limited time offer.
