@@ -1,4 +1,4 @@
-# Portofolio: A/B Testing: Strategic Recommendations for Customer Growth
+# A/B Testing - Strategic Recommendations for Customer Growth
 
 ## Business Understanding
 

@@ -1,4 +1,4 @@
-# Portofolio: Cohort Analysis - Optimize Customer Retention with Acquisition Time-Based Segmentation in Python
+# Cohort Analysis - Optimize Customer Retention with Acquisition Time-Based Segmentation in Python
 
 ## Business Understanding
 

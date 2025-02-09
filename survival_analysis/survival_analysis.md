@@ -1,4 +1,4 @@
-# Portofolio: Survival Analysis - Driving Customer Lifetime Value Growth Through a 29% Reduction in Churn Risk
+# Survival Analysis - Driving Customer Lifetime Value Growth Through a 29% Reduction in Churn Risk
 
 ## Business Understanding
 

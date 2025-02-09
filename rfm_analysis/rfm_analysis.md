@@ -1,4 +1,4 @@
-# Portofolio: RFM Analysis - Optimize Business Strategy using Customer Data Analysis in Python
+# RFM Analysis - Optimize Business Strategy using Customer Data Analysis in Python
 
 ## Business Understanding
 
