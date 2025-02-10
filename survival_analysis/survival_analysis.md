@@ -42,7 +42,9 @@ The survival analysis has some steps to do. All variables we need are time to ev
 
 We'll make churn variable by using if logic. 1 if last_visit < (query_time - six months) else 0 where 1 is churn and 0 is not churn. The CLTV formula we adjust for this case:
 
-$$CLTV = {Price * Gross \ Profit * Average \ Lifetime} $$
+```
+CLTV = {Price * Gross \ Profit * Average \ Lifetime}
+```
 
 Where:
 - Transaction means customers pays the bill (counted per each month)
@@ -555,11 +557,15 @@ info
 
 Regardless of ad cost, the Discount Cost would be like:
 
-$$DC = ((1 - Gross \ Profit) * Price) - ((1 - First \ Month \ Discount) * Price)$$
+```
+DC = ((1 - Gross \ Profit) * Price) - ((1 - First \ Month \ Discount) * Price)
+```
 
 I use Average Lifetime Customers as a parameter. But, because the duration is not normally distributed, I decide to use median, instead. We also don't use average customer order because we know already that the customer only purchase every month which we can just need the median of customer lifetime. The Customer Lifetime Value calculation would be:
 
-$$CLTV = Price * Gross \ Profit * Median \ Lifetime$$
+```
+CLTV = Price * Gross \ Profit * Median \ Lifetime
+```
 
 
 ```python
