@@ -1,8 +1,8 @@
-# Survival Analysis - Driving Customer Lifetime Value Growth Through a 29% Reduction in Churn Risk
+# Portofolio: Survival Analysis - Driving Customer Lifetime Value Growth Through a 29% Reduction in Churn Risk
 
-## Business Understanding
+# Business Understanding
 
-### Introduction
+## Introduction
 
 A fitness center offers comprehensive facilities and training programs to help customers achieve their fitness goals. Currently, they are running an attractive promotional program by offering a 99% discount on the first month's membership fee for new sign-ups. The aims of this coupon program is to:
 - increase member growth
@@ -23,7 +23,7 @@ info = {'price': 199000,
         'first_month_discount': 0.99}
 ```
 
-### Objectives
+## Objectives
 
 The aim of this project is to understand:
 - the customers behaviour after signup and using their 99% discount on the first month membership,
@@ -32,18 +32,18 @@ The aim of this project is to understand:
 - what is the CLTV:CAC ratio, and
 - does age influence the duration of survival.
 
-### Tools and Dataset Needed
+## Tools and Dataset Needed
 
 The technologies used for this project is Python with its library such as numpy, pandas, matplotlib, seaborn, and lifeliness. The dataset contains few variables like customer_id, first_visit, last_visit, and age.
 
-### Methodology
+## Methodology
 
 The survival analysis has some steps to do. All variables we need are time to event where this variable explains how long until the event occurs, target variable where this variable explains whether or not the event occurs until the study ends (it's called right cencored), and other variables that has correlation with the target.
 
 We'll make churn variable by using if logic. 1 if last_visit < (query_time - six months) else 0 where 1 is churn and 0 is not churn. The CLTV formula we adjust for this case:
 
 ```
-CLTV = {Price * Gross \ Profit * Average \ Lifetime}
+CLTV = {Price * Gross Profit * Average Lifetime}
 ```
 
 Where:
@@ -52,9 +52,9 @@ Where:
 - Gross Profit is a profit after all expenses
 - Average Lifetime is the average duration before they do churn.
 
-## Data Understanding
+# Data Understanding
 
-### Data Acquisition
+## Data Acquisition
 
 
 ```python
@@ -84,7 +84,7 @@ print(dataset.head())
     4         1033    2023-10-03  2023-10-22   29
     
 
-### Data Profiling
+## Data Profiling
 
 
 ```python
@@ -164,7 +164,7 @@ dataset.info()
 
 Now we can see that the register_date and last_visit are already datetime type.
 
-### Descriptive Statistics
+## Descriptive Statistics
 
 
 ```python
@@ -291,7 +291,7 @@ dataset.info()
     memory usage: 46.3 KB
     
 
-## Data Preprocessing
+# Data Preprocessing
 
 
 ```python
@@ -445,9 +445,9 @@ plt.show()
 dataset_clean = dataset[['age','duration','churn']].copy()
 ```
 
-## Modeling
+# Modeling
 
-### Kaplan Meier Fitter Modelling
+## Kaplan Meier Fitter Modelling
 
 
 ```python
@@ -553,18 +553,18 @@ info
 
 
 
-### CLTV Calculation
+## CLTV Calculation
 
 Regardless of ad cost, the Discount Cost would be like:
 
 ```
-DC = ((1 - Gross \ Profit) * Price) - ((1 - First \ Month \ Discount) * Price)
+DC = ((1 - Gross Profit) * Price) - ((1 - First Month Discount) * Price)
 ```
 
 I use Average Lifetime Customers as a parameter. But, because the duration is not normally distributed, I decide to use median, instead. We also don't use average customer order because we know already that the customer only purchase every month which we can just need the median of customer lifetime. The Customer Lifetime Value calculation would be:
 
 ```
-CLTV = Price * Gross \ Profit * Median \ Lifetime
+CLTV = Price * Gross Profit * Median Lifetime
 ```
 
 
@@ -589,13 +589,13 @@ print(f"The CLTV Ratio: {(cltv/dc).round(3)}")
     The CLTV Ratio: 7.5
     
 
-### cltv ratio
+## CLTV ratio
 
 The customer lifetime value is simply a value that contributes to the profit of the company. This means, the price multiply by the gross profit and multiply by median lifetime. The standard ratio for CLTV is 3:1. In this case, the ratio is 7.5 which is very healthy for the company.
 
 Note: in CLTV formula, we subtract one for the median lifetime because that is counted as the discount. So, the real median lifetime is 6 months.
 
-### Cox Proportional Hazard Modelling
+## Cox Proportional Hazard Modelling
 
 The CoxPHFitter is the module to analyze what factors contribute the most to the churn customers.
 
@@ -624,7 +624,7 @@ cox.print_summary(style='ascii')
        number of observations = 1476
     number of events observed = 831
        partial log-likelihood = -5056.16
-             time fit was run = 2025-02-08 15:39:22 UTC
+             time fit was run = 2025-02-22 16:10:33 UTC
     
     ---
                coef exp(coef)  se(coef)  coef lower 95%  coef upper 95% exp(coef) lower 95% exp(coef) upper 95%
@@ -663,9 +663,9 @@ plt.show()
     
 
 
-## Insights
+# Insights
 
-### Interpretation and Reporting
+## Interpretation and Reporting
 - 271 customers from 1476 decide not to continue the subscription.
 - Because the duration is not normally distributed, we use non-parametric statistical technique which is Kaplan Meier method. The median of customer lifetime is 7 months or 6 months after one month discount. So, we just counted it as 6 months.
 - The ratio of CLTV is 7.5 which is very good performance.
@@ -673,7 +673,7 @@ plt.show()
 - This effect was statistically significant (p < .05).
 - The model demonstrated good predictive ability, as indicated by a concordance statistic of 0.88.
 
-### Action
+## Action
 
 **Focus on retention for new customers**
 - Insight: 6 months are the median lifetime customers. Customers stop subscribing even before one year.
@@ -697,7 +697,7 @@ plt.show()
   - Use the model to predict which customers have high risk churn before they really do it.
   - Proactive churn intervention like offer additional services.
 
-### Further Analysis
+# Further Analysis
 - Perform A/B testing to test effectiveness of retention strategy.
 - Conduct Funnel analysis to get customer acquisition cost.
 - Do clustering analysis to segment customers based on their characteristics.

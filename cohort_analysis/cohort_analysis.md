@@ -1,24 +1,24 @@
-# Cohort Analysis - Optimize Customer Retention with Acquisition Time-Based Segmentation in Python
+# Portofolio: Cohort Analysis - Optimize Customer Retention with Acquisition Time-Based Segmentation in Python
 
-## Business Understanding
+# Business Understanding
 
-### Introduction
+## Introduction
 
 Cohort analysis is one of the low complexity but high impact to the business decision. Like RFM analysis, cohort analysis also tries to segment customers based on their characteristics such as channel acquisition or their first time purchase. The group is called cohort. One of the most used variable is transaction date.
 
-### Objectives
+## Objectives
 
 This analysis aims to find trend and pattern of customer behaviour based on the month they first time purchased. These objectives include:
 - which cohort has the most new customers.
 - how much percentage of retention and churn rate month to month.
 
-### Dataset and Tools Needed
+## Dataset and Tools Needed
 
 We will use seblak prasmanan database. Seblak prasmanan is one of the new traditional Indonesian food. It's a boiled krupuk with various topping and what make seblak prasmanan special is you can take only topping that you like as many as you want.
 
 The tools we need for this analysis is only Python programming language and the library such as numpy, pandas, datetime, matplotlib, and seaborn. 
 
-### Methodology
+## Methodology
 
 For this analysis, we only need customer_id and transaction date where later we will do some data preprocessing to find their first time purchase and other metrics. Here are the steps to do cohort analysis:
 - find the first time purchase for each customer. name it as cohort month.
@@ -26,9 +26,9 @@ For this analysis, we only need customer_id and transaction date where later we 
 - substract the transaction month with cohort month to get cohort index.
 - make pivot table so we can see which cohort month has how many customers for each cohort index.
 
-## Data Understanding
+# Data Understanding
 
-### Data Acquisition
+## Data Acquisition
 
 
 ```python
@@ -43,15 +43,15 @@ df = pd.read_csv('data/seblak_dataset.csv')
 print(df.head())
 ```
 
-       customer_id transaction_date       city customers  purchase
-    0            7       2023-09-23     Bekasi    member       136
-    1           22       2023-05-05      Depok    member       142
-    2           36       2023-12-16  Tangerang    member       156
-    3           28       2023-03-19     Bekasi    member       179
-    4           24       2023-01-19     Bekasi    member       164
+       customer_id transaction_date       city customer_type  purchase
+    0            7       2023-09-23    Jakarta        member       193
+    1           22       2023-05-05    Jakarta        member       160
+    2           31       2023-10-05  Tangerang        member       194
+    3           50       2023-10-12    Jakarta        member       171
+    4           13       2023-08-15     Bekasi        member       177
     
 
-### Data Profiling
+## Data Profiling
 
 
 ```python
@@ -67,7 +67,7 @@ df.info()
      0   customer_id       3936 non-null   int64 
      1   transaction_date  3936 non-null   object
      2   city              3936 non-null   object
-     3   customers         3936 non-null   object
+     3   customer_type     3936 non-null   object
      4   purchase          3936 non-null   int64 
     dtypes: int64(2), object(3)
     memory usage: 153.9+ KB
@@ -85,7 +85,7 @@ df.isnull().sum()
     customer_id         0
     transaction_date    0
     city                0
-    customers           0
+    customer_type       0
     purchase            0
     dtype: int64
 
@@ -100,7 +100,7 @@ df.duplicated().sum()
 
 
 
-    np.int64(0)
+    np.int64(1)
 
 
 
@@ -127,13 +127,13 @@ df.info()
      0   customer_id       3936 non-null   int64         
      1   transaction_date  3936 non-null   datetime64[ns]
      2   city              3936 non-null   object        
-     3   customers         3936 non-null   object        
+     3   customer_type     3936 non-null   object        
      4   purchase          3936 non-null   int64         
     dtypes: datetime64[ns](1), int64(2), object(2)
     memory usage: 153.9+ KB
     
 
-### Descriptive Statistics
+## Descriptive Statistics
 
 Because our main goal is to understand customer retention using time-based acquisition, we just need customer_id and transaction_date.
 
@@ -149,13 +149,13 @@ df['customer_id'].value_counts()
     68     28
     21     24
     136    24
-    38     23
     71     23
+    38     23
            ..
-    412     1
-    416     1
     408     1
-    421     1
+    257     1
+    543     1
+    324     1
     571     1
     Name: count, Length: 552, dtype: int64
 
@@ -171,21 +171,21 @@ df['transaction_date'].value_counts()
 
     transaction_date
     2023-11-15    34
-    2023-12-08    28
     2023-12-31    28
+    2023-12-08    28
     2023-10-06    27
     2023-12-24    26
                   ..
-    2023-01-27     1
-    2023-01-06     1
-    2023-01-02     1
+    2023-01-05     1
+    2023-02-20     1
     2023-03-29     1
-    2023-02-13     1
+    2023-04-06     1
+    2023-01-02     1
     Name: count, Length: 362, dtype: int64
 
 
 
-## Data Preprocessing
+# Data Preprocessing
 
 
 ```python
@@ -213,19 +213,19 @@ df['cohort_month'] = group.transform('min')
 print(df.head())
 ```
 
-       customer_id transaction_date       city customers  purchase  \
-    0            7       2023-09-23     Bekasi    member       136   
-    1           22       2023-05-05      Depok    member       142   
-    2           36       2023-12-16  Tangerang    member       156   
-    3           28       2023-03-19     Bekasi    member       179   
-    4           24       2023-01-19     Bekasi    member       164   
+       customer_id transaction_date       city customer_type  purchase  \
+    0            7       2023-09-23    Jakarta        member       193   
+    1           22       2023-05-05    Jakarta        member       160   
+    2           31       2023-10-05  Tangerang        member       194   
+    3           50       2023-10-12    Jakarta        member       171   
+    4           13       2023-08-15     Bekasi        member       177   
     
       transaction_month cohort_month  
     0        2023-09-01   2023-01-01  
     1        2023-05-01   2023-02-01  
-    2        2023-12-01   2023-01-01  
-    3        2023-03-01   2023-01-01  
-    4        2023-01-01   2023-01-01  
+    2        2023-10-01   2023-01-01  
+    3        2023-10-01   2023-01-01  
+    4        2023-08-01   2023-01-01  
     
 
 
@@ -263,19 +263,19 @@ df['index_cohort'] = year_diff * 12 + month_diff
 print(df.head())
 ```
 
-       customer_id transaction_date       city customers  purchase  \
-    0            7       2023-09-23     Bekasi    member       136   
-    1           22       2023-05-05      Depok    member       142   
-    2           36       2023-12-16  Tangerang    member       156   
-    3           28       2023-03-19     Bekasi    member       179   
-    4           24       2023-01-19     Bekasi    member       164   
+       customer_id transaction_date       city customer_type  purchase  \
+    0            7       2023-09-23    Jakarta        member       193   
+    1           22       2023-05-05    Jakarta        member       160   
+    2           31       2023-10-05  Tangerang        member       194   
+    3           50       2023-10-12    Jakarta        member       171   
+    4           13       2023-08-15     Bekasi        member       177   
     
       transaction_month cohort_month  index_cohort  
     0        2023-09-01   2023-01-01             8  
     1        2023-05-01   2023-02-01             3  
-    2        2023-12-01   2023-01-01            11  
-    3        2023-03-01   2023-01-01             2  
-    4        2023-01-01   2023-01-01             0  
+    2        2023-10-01   2023-01-01             9  
+    3        2023-10-01   2023-01-01             9  
+    4        2023-08-01   2023-01-01             7  
     
 
 
@@ -311,7 +311,7 @@ cohort_data.info()
 cohort_data['cohort_month'] = pd.DatetimeIndex(cohort_data['cohort_month']).to_period('M')
 ```
 
-## Modeling
+# Modeling
 
 
 ```python
@@ -340,7 +340,7 @@ plt.show()
 
 
     
-![png](output_45_0.png)
+![png](output_41_0.png)
     
 
 
@@ -355,24 +355,24 @@ plt.show()
 
 
     
-![png](output_46_0.png)
+![png](output_42_0.png)
     
 
 
-## Insights
+# Insights
 
-### Interpretation and Reporting
+## Interpretation and Reporting
 
 This cohort table contains twelve month observation where first month is January and the last month is December. The highest amount of acquisition is in October, 59 new customers and the lowest amount of acquisition is in January and February with 37 new customers. In December, almost all cohort month has more than 50% retention which is still acceptable. Only cohort July has 48% retention rate in December. There are 80% of new customers from cohort May comes back to purchase in November which is great.
 
-### Actions
+## Actions
 
 We know that it's a good job to reach 50% retention rate. But, there are still some space we can improve to increase customer retention rate. Retention is where the customers purchase more than one time. Higher retention rate means high frequency of customers purchasing our products. There are some actions we can apply for our marketing strategy, here they are:
 - increase customer **satisfaction** by prioritizing great customer service and support.
 - improve product from package or feature, build quality or experiences, and ease of use or price to meet the needs of customers.
 - apply loyalty programs like membership for personalized experience or special price.
 
-### Further Analysis
+## Further Analysis
 
 - do churn analysis to understand churn rate, identifying what factors make customers stop purchasing or using our products.
 - do survival analysis to understand customer lifetime value, predicting how often customers will purchase.

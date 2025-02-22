@@ -1,5 +1,56 @@
 # PORTOFOLIO
 
+## 05. [Portofolio: Funnel Analysis - Improving Ad Relevance, CPM, and Direct Message Effectiveness](funnel_analysis/funnel_analysis.md)
+
+### Introduction
+
+The Team marketing has conducted a marketing strategy using discount 99% for first month after sign up in fitness center to attract new customers. This customer acquisition strategy used the top five popular social media platform. Our main goal for this analysis is to know how much the cost per acquisition using funnel analysis. Few things we need to know:
+- The CPM: IDR65.000
+- Impression: 990.000
+
+
+```python
+cpm = 65000
+```
+
+### Objectives
+
+There are metrics and KPI we need to calculate, like:
+- Impression per click
+- Total user reach
+- Impression per user
+- User per click
+- Click per message
+- Message per visit
+- Visit per closing
+- cost per acquisition
+
+### Methodology
+
+We will use AIDA concept for this analysis with some modification to fit the problem. It's AIDCA (Awareness, Interest, Desire, Conviction, and Action). In this dataset, the action variables follow this term:
+- Awareness = Impression
+- Interest = Click
+- Desire = Message(DM)
+- Conviction = Visit
+- Action = Closing
+
+```
+impression per click = total impression / total click
+
+impression per user = total impression / total user
+
+user per click = total user / total click
+
+click per message = total click / total direct message
+
+message per visit = total direct message / total visit store
+
+visit per close = total users visit store / total close
+where close means purchase or subscribe
+
+cost per acquisition = (cost per mile / 1000) * impression / total close
+```
+
 ## 04. [Survival Analysis - Driving Customer Lifetime Value Growth Through a 29% Reduction in Churn Risk](survival_analysis/survival_analysis.md)
 
 ### Introduction

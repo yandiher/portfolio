@@ -1,14 +1,14 @@
-# A/B Testing - Strategic Recommendations for Customer Growth
+# Portofolio: A/B Testing - Strategic Recommendations for Customer Growth
 
-## Business Understanding
+# Business Understanding
 
-### Introduction
+## Introduction
 
 The marketing team makes a loyalty program strategy to increase sales. Member customers will get 13% discount if they purchase above IDR130. They try making conversion by triggering casual customers into member customers. The marketing team believe that if every customers become a member, the purchasing power and retention rate will increase. This firm has five branches. The marketing team implements exact same advertisement for each city.
 
 The marketing team wants to know the effectiveness of the program using A/B testing that runs for one year. They want to know if there is a different for total repeat purchases between member and casual customers, for total purchases between member and casual customers, for average purchases between member and casual customers, and association between city and customers that decide to become members.
 
-### Objectives
+## Objectives
 
 The aim of this project is to understand whether or not:
 - There is a significant difference in total repeat purchases between member and casual customers.
@@ -16,17 +16,17 @@ The aim of this project is to understand whether or not:
 - There is a significant difference in average purchases between member and casual customers.
 - There is a significant association between city and customers that decide to become members.
 
-### Tools and Dataset Needed
+## Tools and Dataset Needed
 
 We will use seblak prasmanan database. Seblak prasmanan is one of the new Indonesian traditional food. It's a boiled krupuk with various topping and what make seblak prasmanan special is you can take only topping that you like as many as you want.
 
 The tools we need for this analysis is only Python programming language and the library such as numpy, pandas, matplotlib, seaborn, and scipy.
 
-### Methodology
+## Methodology
 
 Because we will do two types of testing, we will seperate them into two.
 
-#### T-test
+### T-test
 
 Assumption:
 - The sample must be independent.
@@ -41,7 +41,7 @@ Alternative Hypothesis:
 - Conceptual: There is a significant difference between group A and group B.
 - Mathematical: The mean/median score for group A is not equal to the mean/median score for group B.
 
-#### Chi-square test
+### Chi-square test
 
 Assumption:
 - There are two categorical variables.
@@ -56,9 +56,9 @@ Alternative Hypothesis:
 - Conceptual: There are significant associations between variable X and variable Y.
 - Mathematical: The observed frequencies are not equal to the expected frequencies.
 
-## Data Understanding
+# Data Understanding
 
-### Data Acquisition
+## Data Acquisition
 
 
 ```python
@@ -93,7 +93,7 @@ print(dataset.head())
     4           13       2023-08-15     Bekasi        member       177
     
 
-### Data Profiling
+## Data Profiling
 
 
 ```python
@@ -182,9 +182,9 @@ dataset.info()
 
 We don't have missing values. We found one duplicated sample but we already cleaned it. We also got one data that wrong format and we've corrected it already.
 
-### Descriptive Statistics
+## Descriptive Statistics
 
-#### Numeric
+### Numeric
 
 
 ```python
@@ -331,7 +331,7 @@ normality_test(count_purchase)
 
 customer repeat purchase(count_purchase) is also not gaussian distribution. So, we can use Mann Whitney U test for this variable.
 
-#### Categorical
+### Categorical
 
 
 ```python
@@ -422,9 +422,9 @@ round(dataset['customer_type'].value_counts()/dataset['customer_type'].count(), 
 
 
 
-## Data Preprocessing
+# Data Preprocessing
 
-#### Handling Outliers
+## Handling Outliers
 
 Lets see one more time the outliers based on boxplot visualization.
 
@@ -514,7 +514,7 @@ plt.show()
     
 
 
-### Repeat Purchase
+## Repeat Purchase
 
 
 ```python
@@ -537,7 +537,7 @@ member_repeat_purchase = repeat_purchase['member'].dropna()
 casual_repeat_purchase = repeat_purchase['casual'].dropna()
 ```
 
-### Money Spent
+## Money Spent
 
 
 ```python
@@ -557,7 +557,7 @@ member_purchase_mean = purchase_mean[purchase_mean['customer_type'] == 'member']
 casual_purchase_mean = purchase_mean[purchase_mean['customer_type'] == 'casual']['purchase']
 ```
 
-### City by Customer Type
+## City by Customer Type
 
 
 ```python
@@ -575,7 +575,7 @@ print(crosstab)
     Tangerang         103      56
     
 
-## Modeling
+# Modeling
 
 If the variable is normally distributed, we need to check whether or not the two groups have equal variance. Since the groups are not normally distributed, we can skip levine test.
 
@@ -588,7 +588,7 @@ def h0(p):
         return 'fail to reject'
 ```
 
-### Customer Repeat Purchase
+## Customer Repeat Purchase
 
 
 ```python
@@ -662,7 +662,7 @@ plt.show()
     
 
 
-### Customer Money Spent using Sum
+## Customer Money Spent using Sum
 
 
 ```python
@@ -727,7 +727,7 @@ plt.show()
     
 
 
-### Customer Money Spent using Mean
+## Customer Money Spent using Mean
 
 
 ```python
@@ -804,7 +804,7 @@ print(f"{h0(stats.mannwhitneyu(member_purchase_mean, casual_purchase_mean, alter
 
 After we change the alternative parameter into 'greater' from scipy.stats module, we get the result that member purchasing powers are greater than casual purchasing powers.
 
-### Total Customer for Each City by Customer Type
+## Total Customer for Each City by Customer Type
 
 
 ```python
@@ -854,9 +854,9 @@ plt.show()
     
 
 
-## Insights
+# Insights
 
-### Interpretation and Reporting
+## Interpretation and Reporting
 
 
 ```python
@@ -895,7 +895,7 @@ From the table above, we can see that:
     - there are no significant associations between city and whether they become member or casual customers.
     - it means, the loyalty program has no different impact for each city.
 
-### Action
+## Action
 
 1. There is no difference in the total amount of spending between member and casual customer types.
     - Insight: Casual customers are able to contribute the same total spending as member customers.
@@ -916,8 +916,18 @@ From the table above, we can see that:
     - Insight: The decision to become a member is not influenced by the customer's geographic location.
     - Action: Carry out member marketing broadly, without needing to target specific cities. Use strategies based on customer behavior or preferences, such as targeting based on their interests (examples: exclusive access to certain amenities).
 
-## Further Analysis
+# Further Analysis
 
 - do funnel analysis to understand which platform brings more customers.
 - do market basket analysis to understand the correlation of each product so we can do upsell or cross-sell strategies.
 - do survival analysis understand the customer lifetime value.
+
+
+```python
+
+```
+
+
+```python
+
+```
