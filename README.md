@@ -1,5 +1,31 @@
 # PORTOFOLIO
 
+## 06. [Portofolio: Market Basket Analysis - Maximize Sales by Understanding Customer Transaction Patterns](market_basket_abalysis/market_basket_abalysis.md)
+
+### Introduction
+
+Seblak Prasmanan is a type of street food where customers can customize their meals by selecting from a variety of ingredients. The food categories include crisps, noodles, mushrooms, vegetables, and meats. The marketing team aims to develop cross-selling strategies to boost sales.
+
+### Objectives
+
+The objective of this project is to identify product bundles based on transaction frequency.
+
+### Tools and Dataset Needed
+
+The tools required for this project are Python and its libraries, such as mlxtend, numpy, pandas, matplotlib, and seaborn. The dataset needed is a transaction record containing transaction IDs, transaction dates, product names, and quantities of sold products.
+
+### Methodology
+
+The algorithm used in this project is the apriori algorithm. The first step involves setting the minimum support threshold. Support is defined as the percentage of transactions in which a product appears.
+- In the first iteration, the support of all products is calculated. Products that meet the minimum support threshold are selected.
+- In the second iteration, for the selected products, the support of product pairs purchased together is calculated. Product pairs that meet the minimum support threshold are selected. These product pairs are called itemsets.
+- In the n-th iteration, the process follows the same rule as the second iteration. The iteration stops when no more n-product itemsets meet the minimum support threshold.
+
+Several metrics are considered, including support, confidence, and lift.
+- Support. As mentioned earlier, support is the frequency of an itemset appearing in the dataset.
+- Confidence. Confidence measures the likelihood that another product will be purchased if a certain product is purchased.
+- Lift. Lift is used to determine whether the co-occurrence of products is coincidental or not.
+
 ## 05. [Portofolio: Funnel Analysis - Improving Ad Relevance, CPM, and Direct Message Effectiveness](funnel_analysis/funnel_analysis.md)
 
 ### Introduction

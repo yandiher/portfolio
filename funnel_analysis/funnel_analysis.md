@@ -172,112 +172,21 @@ dataset.info()
 
 
 ```python
-dataset.describe(include='all')
+print(dataset.describe(include='all'))
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>id</th>
-      <th>platform</th>
-      <th>date</th>
-      <th>action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>1059786</td>
-      <td>1059786</td>
-      <td>1059786</td>
-      <td>1059786</td>
-    </tr>
-    <tr>
-      <th>unique</th>
-      <td>90000</td>
-      <td>5</td>
-      <td>NaN</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>top</th>
-      <td>1075685</td>
-      <td>facebook</td>
-      <td>NaN</td>
-      <td>impression</td>
-    </tr>
-    <tr>
-      <th>freq</th>
-      <td>38</td>
-      <td>381834</td>
-      <td>NaN</td>
-      <td>990000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2024-01-02 12:52:52.661649408</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2024-01-01 00:00:00</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2024-01-02 00:00:00</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2024-01-03 00:00:00</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2024-01-04 00:00:00</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2024-01-12 00:00:00</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+                 id  platform                           date      action
+    count   1059786   1059786                        1059786     1059786
+    unique    90000         5                            NaN           5
+    top     1075685  facebook                            NaN  impression
+    freq         38    381834                            NaN      990000
+    mean        NaN       NaN  2024-01-02 12:52:52.661649408         NaN
+    min         NaN       NaN            2024-01-01 00:00:00         NaN
+    25%         NaN       NaN            2024-01-02 00:00:00         NaN
+    50%         NaN       NaN            2024-01-03 00:00:00         NaN
+    75%         NaN       NaN            2024-01-04 00:00:00         NaN
+    max         NaN       NaN            2024-01-12 00:00:00         NaN
+    
 
 
 ```python
@@ -409,91 +318,17 @@ pivot_table = dataset.pivot_table(
 
 
 ```python
-pivot_table.head()
+print(pivot_table.head())
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>action</th>
-      <th>impression</th>
-      <th>click</th>
-      <th>message</th>
-      <th>visit</th>
-      <th>close</th>
-    </tr>
-    <tr>
-      <th>id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1000001</th>
-      <td>5.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1000004</th>
-      <td>24.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1000006</th>
-      <td>6.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1000007</th>
-      <td>19.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1000008</th>
-      <td>12.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+    action   impression  click  message  visit  close
+    id                                               
+    1000001         5.0    1.0      NaN    NaN    NaN
+    1000004        24.0    1.0      1.0    NaN    NaN
+    1000006         6.0    NaN      NaN    NaN    NaN
+    1000007        19.0    NaN      NaN    NaN    NaN
+    1000008        12.0    1.0      1.0    1.0    1.0
+    
 
 
 ```python
