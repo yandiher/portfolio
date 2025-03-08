@@ -1,6 +1,6 @@
 # PORTOFOLIO
 
-## 06. [Portofolio: Market Basket Analysis - Maximize Sales by Understanding Customer Transaction Patterns](market_basket_abalysis/market_basket_abalysis.md)
+## 06. [Portofolio: Market Basket Analysis - Maximize Sales by Understanding Customer Transaction Patterns](market_basket_analysis/market_basket_analysis.md)
 
 ### Introduction
 
