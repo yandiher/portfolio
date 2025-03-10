@@ -208,12 +208,12 @@ plt.show()
 
 ```python
 plt.figure(figsize=(16,5))
-sns.barplot(
+figure = sns.barplot(
     data=dataset[['nama_makanan', 'jumlah']].groupby('nama_makanan').sum().reset_index().sort_values('jumlah', ascending=False),
     y='nama_makanan', 
     x='jumlah',
-    orient='h')
-plt.xticks(range(0,30000,2500))
+    orient='h',)
+figure.bar_label(figure.containers[0])
 plt.title('Total Sales per Product')
 plt.show()
 ```
@@ -302,6 +302,21 @@ print(apriori_rule.sort_values('support', ascending=False).head(10))
     9   0.535567  (flower_twister)
     
 
+
+```python
+plt.figure(figsize=(16,5))
+figure = sns.barplot(apriori_rule.sort_values('support', ascending=False).head(10).round(2), y='itemsets', x='support')
+figure.bar_label(figure.containers[0])
+plt.title('Top 10 Product Based on Support Value')
+plt.show()
+```
+
+
+    
+![png](output_35_0.png)
+    
+
+
 We see the highest support of itemsets is bakso ikan which is the most popular product, followed by chikuwa.
 
 
@@ -315,20 +330,20 @@ print(association_rules(
 ```
 
             antecedents      consequents  support  confidence   lift
-    0         (chikuwa)     (bakso_ikan)    0.516       0.729  1.001
-    1      (bakso_ikan)        (chikuwa)    0.516       0.709  1.001
+    1         (chikuwa)     (bakso_ikan)    0.516       0.729  1.001
+    0      (bakso_ikan)        (chikuwa)    0.516       0.709  1.001
     2   (dumpling_keju)     (bakso_ikan)    0.474       0.730  1.003
     3      (bakso_ikan)  (dumpling_keju)    0.474       0.651  1.003
     4           (enoki)     (bakso_ikan)    0.471       0.727  0.998
     5      (bakso_ikan)          (enoki)    0.471       0.647  0.998
-    6   (kerupuk_bubur)     (bakso_ikan)    0.462       0.734  1.008
-    7      (bakso_ikan)  (kerupuk_bubur)    0.462       0.634  1.008
-    11  (dumpling_keju)        (chikuwa)    0.460       0.709  1.001
-    10        (chikuwa)  (dumpling_keju)    0.460       0.650  1.001
+    7   (kerupuk_bubur)     (bakso_ikan)    0.462       0.734  1.008
+    6      (bakso_ikan)  (kerupuk_bubur)    0.462       0.634  1.008
+    10  (dumpling_keju)        (chikuwa)    0.460       0.709  1.001
+    11        (chikuwa)  (dumpling_keju)    0.460       0.650  1.001
     12          (enoki)        (chikuwa)    0.459       0.708  1.000
     13        (chikuwa)          (enoki)    0.459       0.648  1.000
-    8           (sosis)     (bakso_ikan)    0.452       0.735  1.009
-    9      (bakso_ikan)          (sosis)    0.452       0.621  1.009
+    9           (sosis)     (bakso_ikan)    0.452       0.735  1.009
+    8      (bakso_ikan)          (sosis)    0.452       0.621  1.009
     
 
 # Insights
