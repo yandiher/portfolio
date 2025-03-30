@@ -1,5 +1,23 @@
 # PORTOFOLIO
 
+## 07. [Portofolio: Binary Classification Analysis - Understanding Customer Churn Using Predictive Analysis Approach](churn_analysis/churn_analysis.md)
+
+### Introduction
+
+The fitness center is facing a challenge with customer retention. After offering a 99% discount for the first month, a significant number of customers choose not to continue their subscriptions. To address this, the marketing team has created a questionnaire aimed at gathering insights from customers willing to spend 10 to 15 minutes sharing their feedback. The goal is to understand the factors influencing customer retention and improve decision-making to reduce churn.
+
+### Objectives
+
+This project aims to predict customer retention by identifying whether or not customers will continue their subscription after the discounted period. Additionally, we will explore the factors that most significantly contribute to customer retention, enabling the fitness center to make data-driven decisions to enhance customer loyalty and reduce churn rates.
+
+### Tools and Dataset Needed
+
+To carry out this analysis, the project will utilize Python and its powerful libraries such as NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, and XGBoost. The dataset consists of responses from customers who completed the marketing questionnaire, providing valuable information on customer behavior, preferences, and potential reasons for discontinuing their subscription.
+
+### Methodology
+
+The analysis will employ a binary classification approach, predicting whether customers will continue their subscription (0) or churn (1). Given the size of the dataset (less than 100,000 samples), ensemble methods such as Random Forest and Gradient Boosting are chosen, as they are robust to outliers and can effectively capture complex patterns in the data.
+
 ## 06. [Portofolio: Market Basket Analysis - Maximize Sales by Understanding Customer Transaction Patterns](market_basket_analysis/market_basket_analysis.md)
 
 ### Introduction
