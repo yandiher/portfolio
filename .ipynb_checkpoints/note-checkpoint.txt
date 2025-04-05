@@ -1,0 +1,41 @@
+the average of age is 25.93 with standard deviation 4.83. the youngest is 19 and the oldest is 35 years old.
+the average of distance is 6.48 with standard deviation 2.46. the closest is 0.56 km and the furthest is 15.52 km.
+the average of salary is 4073029 with standard deviation 446757. the lowest salary is 3466000 and the highest salary is 5724000.
+male worker is more than female worker with value male is 675 and female 662.
+there are 573 employees are less than 1 year of working, 324 employees have worked for 1 year, 240 employees have worked for 2 years, 157 employees have worked for 3 years, 25 employees have worked for 4 years, and 18 employees have worked for the company for 5 years.
+there are 1063 contract employees and 271 permanent employees.
+the variable age is NOT NORMALLY DISTRIBUTED with p-value 3.0713755647928806e-23.
+the variable distance is NOT NORMALLY DISTRIBUTED with p-value 2.5740584999919672e-05.
+the variable salary is NOT NORMALLY DISTRIBUTED with p-value 2.3251802350804323e-22.
+correlation between age and salary is 0.2677533755542009 with p-value 2.1967819030868583e-23
+correlation between distance (km) and salary is 0.11161612976582555 with p-value 4.309750076740309e-05
+there is no significant different mean between salary of male and female with p-value 0.24937777852995913
+there is a significant different mean between salary of permanent and contract with p-value 1.1067336628530867e-87
+we cut some outliers from salary and distance variables.
+after initial modelling, we got r2score : 0.824, mae : 110612.0, rmse : 164278.93
+we compare well known algorithms and got this result:
+                 name  score         mae        rmse
+0           ada_boost  0.726  177825.197  198155.635
+1  k-nearest_neighbor  0.834   98750.781  162789.011
+2  xgb_gradient_boost  0.839   90337.450  154496.369
+3   xgb_random_forest  0.880   77025.460  126344.339
+we choose xgb random forest for our main model.
+after doing some hyperparameter tuning, we got score 0.8741889505217613 with best parameters {'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100}.
+we got score r2score : 0.894, mae : 80822.933, and rmse : 127597.995 after hyperparameter tuning for test sample.
+we got score r2score : 0.896, mae : 75479.321, and rmse : 125482.096 for the whole sample.
+
+and, finally we got variables that give most impact to the prediction:
+               feature  value
+0        gender_female  0.000
+1          gender_male  0.000
+2   years of working_0  0.328
+3   years of working_1  0.045
+4   years of working_2  0.013
+5   years of working_3  0.035
+6   years of working_4  0.023
+7   years of working_5  0.039
+8      status_contract  0.244
+9     status_permanent  0.255
+10                 age  0.007
+11       distance (km)  0.011
+

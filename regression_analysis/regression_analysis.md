@@ -917,7 +917,7 @@ plt.show()
 **1. Employee Demographic Profile:**
 - The mean employee age is 25.93 years (SD = 4.83 years), with a range of 19 to 35 years. The age distribution deviates significantly from a normal distribution (p < 0.001).
 - The average distance between employees' residences and the office is 6.48 km (SD = 2.46 km), with distances ranging from 0.56 km to 15.52 km. The distribution of commute distances also does not follow a normal distribution (p < 0.001).
-- The mean employee salary is Rp 4,073,030 (SD = Rp 446,757), with a minimum of Rp 3,466,000 and a maximum of Rp 5,724,000. The salary distribution is non-normal (p < 0.001).
+- The mean employee salary is Rp 4,073,029 (SD = Rp 446,757), with a minimum of Rp 3,466,000 and a maximum of Rp 5,724,000. The salary distribution is non-normal (p < 0.001).
 - The workforce comprises 675 male employees and 662 female employees.
 - The distribution of employee tenure is as follows: less than 1 year (573), 1 year (324), 2 years (240), 3 years (157), 4 years (25), and 5 years (18). A significant proportion of the workforce has a tenure of under one year.
 - The majority of employees are on contract (1063), significantly outnumbering permanent employees (271).
