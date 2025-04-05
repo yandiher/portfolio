@@ -1,5 +1,27 @@
 # PORTOFOLIO
 
+## 08. [Regression Analysis - Understanding Key Factors Influencing Employee Compensation](regression_analysis/regression_analysis.md)
+
+### Introduction
+Seblak prasmanan outlet wants to increase efficiency in managing human resource and making decision related to employee salary. Employee salary is determinated based on their individual negotiation and standard policy, without deep analysis related to factors that influence the salary. This causes unfairness in giving salary and decision that is not optimal in career development career.
+
+### Objectives
+
+This project aims to make company be able to:
+- Set fair and competitive salary.
+- Increase employee retention with giving appropiate compensation.
+- Optimize budget for salary and allowance management.
+
+### Tools and Dataset Needed
+
+Tools we need for this project are python with its library (numpy, pandas, matplotlib, seaborn, and scikit-learn) and dataset has various variables like: age, distance, gender, years of working, status employment, and salary.
+
+### Methodology
+
+Regression analysis is statistical technique we used to build model related between one variable dependent with one or more independent variables. This model tries to predict continous variables after we input some values to independent variables. Independent here means factors that relate with dependent variable.
+
+Evaluation for regression includes R2 or R-squared, Mean Absolute Error, and Root Means Squared Error. We also can plot error using residual plot.
+
 ## 07. [Portofolio: Binary Classification Analysis - Understanding Customer Churn Using Predictive Analysis Approach](churn_analysis/churn_analysis.md)
 
 ### Introduction
