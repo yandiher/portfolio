@@ -1,4 +1,4 @@
-# Portofolio:
+# Portofolio: Regression Analysis - Understanding Key Factors Influencing Employee Compensation
 
 # Business Understanding
 
@@ -43,89 +43,16 @@ dataset = pd.read_csv('data/seblak_cook_salary.csv')
 
 
 ```python
-dataset.head()
+print(dataset.head())
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>distance (km)</th>
-      <th>gender</th>
-      <th>years of working</th>
-      <th>status</th>
-      <th>salary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>19</td>
-      <td>5.369</td>
-      <td>female</td>
-      <td>0</td>
-      <td>permanent</td>
-      <td>3909000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>19</td>
-      <td>7.731</td>
-      <td>male</td>
-      <td>1</td>
-      <td>contract</td>
-      <td>3782000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>22</td>
-      <td>7.421</td>
-      <td>male</td>
-      <td>3</td>
-      <td>contract</td>
-      <td>4159000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>24</td>
-      <td>3.278</td>
-      <td>male</td>
-      <td>0</td>
-      <td>contract</td>
-      <td>4053000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>23</td>
-      <td>5.763</td>
-      <td>male</td>
-      <td>0</td>
-      <td>contract</td>
-      <td>3543000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+       age  distance (km)  gender  years of working     status   salary
+    0   19          5.369  female                 0  permanent  3909000
+    1   19          7.731    male                 1   contract  3782000
+    2   22          7.421    male                 3   contract  4159000
+    3   24          3.278    male                 0   contract  4053000
+    4   23          5.763    male                 0   contract  3543000
+    
 
 ## Data Profiling
 
